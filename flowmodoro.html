@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flomodoro Timer</title>
+  <link rel="stylesheet"href="css/bootstrap.css">
+  <script src="js/bootstrap.js"></script>
+  <style>
+    /* Style the title */
+    body {
+      background-color: aqua;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2em;
+      margin: 0 auto;
+      padding: 0.5em 0;
+    }
+
+    /* Style the timer */
+    #timer {
+      display: flex;
+      justify-content: center;
+      font-size: 10em;
+      font-family: 'digital-clock-font';
+      margin: 0;
+      padding: 0.5em 0;
+      color: white;
+    }
+
+    #buttons {
+      text-align: center;
+    }
+
+    #minutes-seconds {
+      display: flex;
+      align-items: center;
+    } 
+  </style>
+</head>
+<body>
+  <h1>Flomodoro Timer</h1>
+  <div class="container bg-primary rounded" style="display: flex; align-items: center; justify-content: center; margin-bottom: 50px; width: 40%">
+    
+    <div id="timer">
+      <div id="minutes-seconds">
+        <div id="minutes" >00</div>:<div id="seconds">00</div>
+      </div>
+    </div>
+    
+  </div>  
+  
+  <div id ="buttons">
+    <button type = "button" class="btn btn-primary" id="start-button">Start</button>
+    <button id="stop-button">Stop</button>
+    <button id="reset-button">Reset</button>
+    <button id="pause-button">Pause</button>
+  </div>  
+  <script src="g.js"></script>
+  <audio id="ringing-sound" src="telephone-ring-03a.mp3" type="audio/mpeg"></audio>
+</body>
+</html>
