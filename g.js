@@ -40,9 +40,7 @@ function updateBreak(minutes, seconds) {
       rest = false;
     }
 
-    if (seconds < 60) {
-      document.body.style.backgroundColor = "red";
-    }
+
 
      // If the seconds reach 0, decrement the minutes and reset the seconds
      if (seconds < 0) {
@@ -107,7 +105,7 @@ function stopTimerUI() {
     // Reset the timer UI
     resetTimerUI();
   }
-  document.body.style.backgroundColor = ""
+  
 }
 
 // Reset the timer UI
