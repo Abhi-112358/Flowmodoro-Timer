@@ -40,7 +40,9 @@ function updateBreak(minutes, seconds) {
       rest = false;
     }
 
-
+     if (minutes == 0 && seconds < 10) {
+      document.getElementById("timer").style.color = "red";
+     }
 
      // If the seconds reach 0, decrement the minutes and reset the seconds
      if (seconds < 0) {
@@ -49,6 +51,10 @@ function updateBreak(minutes, seconds) {
       }
       if (minutes == 0 && seconds == 0) {
         playRingingSound();
+        document.getElementById("timer").style.color = "";
+        document.getElementById("pause-button").style.display = "none";
+        document.getElementById("start-button").style.display = "inline";
+        document.getElementById("session-type").innerHTML = "Focus";
       }   
   
     // Return the updated time
@@ -57,6 +63,10 @@ function updateBreak(minutes, seconds) {
 
 // Start the timer UI
 function startTimerUI(minutes, seconds) {
+
+  document.getElementById("pause-button").style.display = "inline";
+  document.getElementById("start-button").style.display = "none";
+
   // Start the timer
   timer = setInterval(() => {
     // Update the timer
@@ -78,6 +88,8 @@ function startTimerUI(minutes, seconds) {
 
 // Stop the timer UI
 function pauseTimerUI() {
+  document.getElementById("pause-button").style.display = "none";
+  document.getElementById("start-button").style.display = "inline";
   // If the timer is running, stop it
   if (timerRunning) {
     clearInterval(timer);
@@ -91,16 +103,23 @@ function stopTimerUI() {
     // Calculate the break time
     pauseTimerUI();
     let time = currminutes * 60 + currseconds;
-    console.log(currseconds)
+    if (time < 3) {
+      breakTime = 1;
+    }
+    else {
     breakTime = Math.round(time / 5);
+    }
+    console.log(breakTime);
     currminutes = Math.round(breakTime / 60);
     currseconds = breakTime % 60;
     // Set the rest flag to true
     rest = true;
+    document.getElementById("session-type").innerHTML = "Break";
     
   } else {
     // Reset the rest flag to false
     rest = false;
+    document.getElementById("session-type").innerHTML = "Focus";
 
     // Reset the timer UI
     resetTimerUI();

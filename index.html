@@ -2,60 +2,71 @@
 <html>
 <head>
   <title>Flowmodoro Timer</title>
-  <link rel="stylesheet"href="css/bootstrap.css">
-  <script src="js/bootstrap.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <style>
     /* Style the title */
     body {
-      background-color: aqua;
+      background-color: #acb3b3;
     }
     h1 {
       text-align: center;
       font-size: 2em;
+      font-weight: bold;
       margin: 0 auto;
       padding: 0.5em 0;
+      color: #4A4A4A;
     }
 
     /* Style the timer */
     #timer {
-      display: flex;
-      justify-content: center;
+      text-align: center;
       font-size: 10em;
-      font-family: 'digital-clock-font';
+      font-family: 'digital-clock- clock-font';
       margin: 0;
       padding: 0.5em 0;
-      color: white;
+      color: #4A4A4A;
+    }
+    #minutes, #seconds {
+      display: inline-block;
+      margin-right: 10px;
     }
 
     #buttons {
       text-align: center;
     }
-
-    #minutes-seconds {
-      display: flex;
-      align-items: center;
-    } 
+    .container{
+      max-width: 40%;
+      margin-top: 50px;
+    }
+    .btn{
+      margin: 0 5px;
+    }
   </style>
 </head>
 <body>
   <h1>Flowmodoro</h1>
-  <div class="container bg-primary rounded" style="display: flex; align-items: center; justify-content: center; margin-bottom: 50px; width: 40%">
-    
-    <div id="timer">
-      <div id="minutes-seconds">
-        <div id="minutes" >00</div>:<div id="seconds">00</div>
+  <div class="container mx-auto" >
+    <div class="card text-center">
+      <div class="card-header">
+        <h3 id="session-type" style = "color: #4A4A4A">Focus</h4>
+        <h2 class="card-title" id="timer">
+            <span id="minutes-seconds">
+              <span id="minutes" >00</span>:<span id="seconds">00</span>
+            </span>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div id ="buttons">
+          <button id="pause-button" class="btn btn-info" style = "display: none;">Pause</button>
+          <button type = "button" class="btn btn-success" id="start-button" style = "display: inline;">Start</button>
+          <button id="stop-button" class="btn btn-danger">Stop</button>
+          <button id="reset-button" class="btn btn-warning">Reset</button>
       </div>
     </div>
-    
-  </div>  
-  
-  <div id ="buttons">
-    <button type = "button" class="btn btn-primary" id="start-button">Start</button>
-    <button id="stop-button">Stop</button>
-    <button id="reset-button">Reset</button>
-    <button id="pause-button">Pause</button>
-  </div>  
-  <script src="g.js"></script>
-  <audio id="ringing-sound" src="telephone-ring-03a.mp3" type="audio/mpeg"></audio>
+  </div>
+</div>  
+<script src="g.js"></script>
+<audio id="ringing-sound" src="telephone-ring-03a.mp3" type="audio/mpeg"></audio>
 </body>
 </html>
+
