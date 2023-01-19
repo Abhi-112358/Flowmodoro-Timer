@@ -5,6 +5,8 @@ let currminutes = 0;
 let currseconds = 0;
 let rest = false;
 let breakTime = 0;
+let cycle = 0;
+let pausecount = 0;
 
 
 // Play the ringing sound when the timer reaches 0
@@ -63,10 +65,15 @@ function updateBreak(minutes, seconds) {
 
 // Start the timer UI
 function startTimerUI(minutes, seconds) {
-
+  console.log("#" + cycle);
+  
   document.getElementById("pause-button").style.display = "inline";
   document.getElementById("start-button").style.display = "none";
-
+  if (!rest && pausecount == 0) {
+    cycle++;
+    document.getElementById("cycle").innerHTML = "#" + String(cycle);
+    
+  }
   // Start the timer
   timer = setInterval(() => {
     // Update the timer
@@ -74,7 +81,9 @@ function startTimerUI(minutes, seconds) {
     if (rest) {
       updatedTime = updateBreak(minutes, seconds);
     } else {
+
       updatedTime = updateTimer(minutes, seconds);
+
     }
     currminutes = minutes = updatedTime.minutes;
     currseconds = seconds = updatedTime.seconds;
@@ -90,6 +99,7 @@ function startTimerUI(minutes, seconds) {
 function pauseTimerUI() {
   document.getElementById("pause-button").style.display = "none";
   document.getElementById("start-button").style.display = "inline";
+  pausecount++;
   // If the timer is running, stop it
   if (timerRunning) {
     clearInterval(timer);
@@ -116,6 +126,7 @@ function stopTimerUI() {
     rest = true;
     document.getElementById("session-type").innerHTML = "Break";
     
+    
   } else {
     // Reset the rest flag to false
     rest = false;
@@ -124,6 +135,7 @@ function stopTimerUI() {
     // Reset the timer UI
     resetTimerUI();
   }
+  pausecount = 0;
   
 }
 
