@@ -10,8 +10,7 @@ let pausecount = 0;
 let roundTime = 0;
 
 // Initialize an empty array to store session history
-var sessionHistory = [];
-
+let sessionHistory = [];
 
 // Check if there is already a session history in local storage
 if (localStorage.getItem("sessionHistory")) {
@@ -74,7 +73,7 @@ function updateBreak(minutes, seconds) {
 
 // Start the timer UI
 function startTimerUI(minutes, seconds) {
- 
+  console.log(sessionHistory); 
   console.log("#" + cycle);
   
   document.getElementById("pause-button").style.display = "inline";
@@ -176,24 +175,18 @@ function resetTimerUI() {
   document.getElementById("stop-button").addEventListener("click", stopTimerUI);
   // When the timer ends, add the current session to the history
   document.getElementById("stop-button").addEventListener("click", () => {
-    
     if (rest) {
-      
-    
         console.log("me" + breakTime * 5);
       let currSession = {
-        date: Date(),
         cycle: cycle,
         focusDuration: roundTime,
         breakDuration: breakTime,
       };
       sessionHistory.push(currSession);
       localStorage.setItem("sessionHistory", JSON.stringify(sessionHistory));
-      
     }
   });
 
   document.getElementById("reset-button").addEventListener("click", resetTimerUI);
   document.getElementById("pause-button").addEventListener("click", pauseTimerUI);
 
-  
