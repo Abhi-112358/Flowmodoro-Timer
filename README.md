@@ -9,6 +9,7 @@ focusing.
 
 To Do:
 -Improve the graphical interface
--Track sessions
+-Fix Bugs from pulling session history from user's browsers
+-Implement login system
 -Store user data
 
