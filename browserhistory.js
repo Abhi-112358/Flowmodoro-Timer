@@ -37,7 +37,7 @@ document.getElementById("stop-button").addEventListener("click", () => {
         let getBreak = "break" + String(i)
         
         document.getElementById(getDate).innerHTML = curr_date.toDateString();
-        document.getElementById(getCycle).innerHTML = format_time(last_10[i - 1].cycle);
+        document.getElementById(getCycle).innerHTML = String(last_10[i - 1].cycle);
         document.getElementById(getFocus).innerHTML = format_time(last_10[i - 1].focusDuration);
         document.getElementById(getBreak).innerHTML = format_time(last_10[i - 1].breakDuration);
         document.getElementById(String(i)).style.display = "table-row";
