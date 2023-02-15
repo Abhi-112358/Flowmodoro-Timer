@@ -15,10 +15,9 @@ var sessionHistory = [];
 
 // Check if there is already a session history in local storage
 if (localStorage.getItem("sessionHistory")) {
+  console.log("yes");
   sessionHistory = JSON.parse(localStorage.getItem("sessionHistory"));
-  if (sessionHistory.length > 20) {
-    sessionHistory = sessionHistory.splice(sessionHistory.length - 10);
-  }
+
 }
 
 // Play the ringing sound when the timer reaches 0
