@@ -43,36 +43,3 @@ document.getElementById("stop-button").addEventListener("click", () => {
         document.getElementById(String(i)).style.display = "table-row";
     }
 });
-
-
-
-//const { MongoClient, ServerApiVersion } = require('mongodb');
-
-
-// Import the MongoDB driver
-const MongoClient = require('mongodb').MongoClient;
-
-// Connection URL
-const url = "mongodb+srv://Abhi12345:Abhiroop112358@cluster0.gmxba0d.mongodb.net/?retryWrites=true&w=majority";
-
-// Database name
-const dbName = 'test';
-
-// Collection name
-const collectionName = 'sessionHistory';
-
-// Use connect method to connect to the server
-MongoClient.connect(url, { useNewUrlParser: true }, function(err, client) {
-  if (err) throw err;
-  console.log("Connected successfully to server");
-  
-  const db = client.db(dbName);
-  const collection = db.collection(collectionName);
-  
-  // Search for the sessionHistory array and update it
-  collection.updateOne({}, {$set: {sessionHistory: [{time: "2022-01-01T12:00:00Z", activity: "Logged in"}]}}, function(err, res) {
-    if (err) throw err;
-    console.log("Array updated successfully");
-    client.close();
-  });
-});
