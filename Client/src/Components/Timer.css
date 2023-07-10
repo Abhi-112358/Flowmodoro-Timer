@@ -1,0 +1,25 @@
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
+
+#timer {
+    text-align: center;
+    font-size: 10em;
+    font-family: 'digital-clock- clock-font';
+    margin: 0;
+    padding: 0.5em 0;
+    color: #4A4A4A;
+  }
+  #minutes, #seconds {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  #buttons {
+    text-align: center;
+  }
+  .container{
+    max-width: 40%;
+    margin-top: 50px;
+  }
+  .btn{
+    margin: 0 5px;
+  }
