@@ -1,6 +1,6 @@
 # Flowmodoro-Timer
 
-To Launch, go to https://flowmodoro-timer-client-side.onrender.com
+To Launch, go to https://flowmodoro-ashy.vercel.app/
 
 
 Click Start. After you are done with your focus session, click stop, and click start again to start the break/
